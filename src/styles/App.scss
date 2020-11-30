@@ -1,0 +1,15 @@
+.actions {
+  opacity: 0;
+}
+tr:hover .actions {
+  opacity: 1;
+}
+
+tbody td a {
+  color: rgb(100, 99, 99);
+  font-size: 22px;
+
+  &:hover {
+    color: #000;
+  }
+}

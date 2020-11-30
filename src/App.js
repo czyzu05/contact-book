@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import "./styles/App.scss";
 
-function App() {
+const App = () => {
   return (
     <Provider store={store}>
       <div className="App">
@@ -18,6 +18,6 @@ function App() {
       </div>
     </Provider>
   );
-}
+};
 
 export default App;
