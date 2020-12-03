@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import Contact from "./Contact";
 
 const Contacts = () => {
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contact.contacts);
   return (
     <Table bordered hover variant="shadow">
       <thead className="bg-danger text-white">

@@ -19,12 +19,12 @@ const Contact = ({ name, phone, email }) => {
       <td className="actions">
         <a href="#">
           <span className="mr-2">
-            <i class="fas fa-pen"></i>
+            <i className="fas fa-pen"></i>
           </span>
         </a>
         <a href="#">
           <span>
-            <i class="fas fa-trash-alt text-danger"></i>
+            <i className="fas fa-trash-alt text-danger"></i>
           </span>
         </a>
       </td>
