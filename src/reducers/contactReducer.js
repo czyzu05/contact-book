@@ -1,4 +1,4 @@
-import { CREATE_CONTACT } from "../constant/types";
+import { CREATE_CONTACT, GET_CONTACT } from "../constant/types";
 
 const initialState = {
   contacts: [
@@ -233,8 +233,7 @@ const initialState = {
       },
     },
   ],
-  counter: 0,
-  name: "xyz",
+  contact: null,
 };
 
 export const contactReducer = (state = initialState, action) => {
@@ -243,6 +242,14 @@ export const contactReducer = (state = initialState, action) => {
       return {
         ...state,
         contacts: [action.payload, ...state.contacts],
+      };
+    case GET_CONTACT:
+      const searchContact = state.contacts.filter(
+        contact => contact.id === action.payload
+      );
+      console.log(searchContact);
+      return {
+        ...state,
       };
     default:
       return state;
