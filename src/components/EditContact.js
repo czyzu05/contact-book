@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Form, Button, Card } from "react-bootstrap";
 import { getContact } from "../actions/contactActions";
 import { useHistory } from "react-router-dom";
@@ -9,6 +9,7 @@ const EditContact = () => {
   //   const history = useHistory();
   let { id } = useParams();
   const dispatch = useDispatch();
+  const contact = useSelector(state => state.contact.contact);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -24,8 +25,13 @@ const EditContact = () => {
   };
 
   useEffect(() => {
+    if (contact != null) {
+      setName(contact.name);
+      setEmail(contact.email);
+      setPhone(contact.phone);
+    }
     dispatch(getContact(id));
-  }, []);
+  }, [contact]);
 
   return (
     <>
@@ -61,8 +67,8 @@ const EditContact = () => {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
-              Submit
+            <Button variant="warning" type="submit">
+              Update contact
             </Button>
           </Form>
         </Card.Body>

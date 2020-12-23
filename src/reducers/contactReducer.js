@@ -244,12 +244,14 @@ export const contactReducer = (state = initialState, action) => {
         contacts: [action.payload, ...state.contacts],
       };
     case GET_CONTACT:
-      const searchContact = state.contacts.filter(
-        contact => contact.id === action.payload
-      );
-      console.log(searchContact);
+      let contact = state.contacts.filter(item => item.id == action.payload);
+      contact = contact.values();
+      for (let val of contact) {
+        contact = val;
+      }
       return {
         ...state,
+        contact,
       };
     default:
       return state;
