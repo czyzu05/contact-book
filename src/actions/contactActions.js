@@ -3,6 +3,9 @@ import {
   GET_CONTACT,
   UPDATE_CONTACT,
   DELETE_CONTACT,
+  SELECT_CONTACT,
+  CLEAR_CONTACT,
+  DELETE_SELECTED_CONTACTS,
 } from "../constant/types";
 
 export const addContact = contact => {
@@ -30,5 +33,24 @@ export const deleteContact = id => {
   return {
     type: DELETE_CONTACT,
     payload: id,
+  };
+};
+
+export const selectAllContacts = id => {
+  return {
+    type: SELECT_CONTACT,
+    payload: id,
+  };
+};
+
+export const clearContacts = () => {
+  return {
+    type: CLEAR_CONTACT,
+  };
+};
+
+export const deleteSelectedContacts = () => {
+  return {
+    type: DELETE_SELECTED_CONTACTS,
   };
 };
