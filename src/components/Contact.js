@@ -1,8 +1,15 @@
 import React from "react";
 import Avatar from "react-avatar";
 import { Link } from "react-router-dom";
+import { deleteContact } from "../actions/contactActions";
+import { useDispatch } from "react-redux";
 
 const Contact = ({ name, phone, email, id }) => {
+  const dispatch = useDispatch();
+
+  const handleDeleteContact = () => {
+    dispatch(deleteContact(id));
+  };
   return (
     <tr>
       <td>
@@ -23,11 +30,12 @@ const Contact = ({ name, phone, email, id }) => {
             <i className="fas fa-pen"></i>
           </span>
         </Link>
-        <Link to="#">
-          <span>
-            <i className="fas fa-trash-alt text-danger"></i>
-          </span>
-        </Link>
+        <span onClick={handleDeleteContact}>
+          <i
+            className="fas fa-trash-alt text-danger"
+            style={{ fontSize: "20px", cursor: "pointer" }}
+          ></i>
+        </span>
       </td>
     </tr>
   );
