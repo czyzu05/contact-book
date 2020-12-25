@@ -1,18 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Button, Card } from "react-bootstrap";
-import { getContact } from "../actions/contactActions";
+import { getContact, updateContact } from "../actions/contactActions";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 const EditContact = () => {
-  //   const history = useHistory();
+  const history = useHistory();
   let { id } = useParams();
   const dispatch = useDispatch();
   const contact = useSelector(state => state.contact.contact);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+
+  useEffect(() => {
+    if (contact != null) {
+      setName(contact.name);
+      setEmail(contact.email);
+      setPhone(contact.phone);
+    }
+    dispatch(getContact(id));
+  }, [contact]);
 
   const handleNameInput = e => {
     setName(e.target.value);
@@ -24,21 +33,20 @@ const EditContact = () => {
     setEmail(e.target.value);
   };
 
-  useEffect(() => {
-    if (contact != null) {
-      setName(contact.name);
-      setEmail(contact.email);
-      setPhone(contact.phone);
-    }
-    dispatch(getContact(id));
-  }, [contact]);
+  const onUpdateContact = e => {
+    e.preventDefault();
+
+    const update_Contact = Object.assign(contact, { name, phone, email });
+    dispatch(updateContact(update_Contact));
+    history.push("/");
+  };
 
   return (
     <>
       <Card style={{ width: "50rem", margin: "auto" }}>
         <Card.Header style={{ textAlign: "center" }}>Add a contact</Card.Header>
         <Card.Body>
-          <Form>
+          <Form onSubmit={onUpdateContact}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Name</Form.Label>
               <Form.Control

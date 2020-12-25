@@ -1,4 +1,4 @@
-import { CREATE_CONTACT, GET_CONTACT } from "../constant/types";
+import { CREATE_CONTACT, GET_CONTACT, UPDATE_CONTACT } from "../constant/types";
 
 export const addContact = contact => {
   return {
@@ -11,5 +11,12 @@ export const getContact = id => {
   return {
     type: GET_CONTACT,
     payload: id,
+  };
+};
+
+export const updateContact = contact => {
+  return {
+    type: UPDATE_CONTACT,
+    payload: contact,
   };
 };
