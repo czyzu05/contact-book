@@ -15,6 +15,7 @@ const Contact = ({ name, phone, email, id, selectAll }) => {
       <td>
         <div className="custom-control custom-checkbox">
           <input
+            readOnly={true}
             checked={selectAll}
             type="checkbox"
             className="custom-control-input"

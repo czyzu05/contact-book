@@ -44,7 +44,9 @@ const EditContact = () => {
   return (
     <>
       <Card style={{ width: "50rem", margin: "auto" }}>
-        <Card.Header style={{ textAlign: "center" }}>Add a contact</Card.Header>
+        <Card.Header style={{ textAlign: "center" }}>
+          Edit a contact
+        </Card.Header>
         <Card.Body>
           <Form onSubmit={onUpdateContact}>
             <Form.Group controlId="formBasicEmail">

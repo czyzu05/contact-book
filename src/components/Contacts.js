@@ -63,7 +63,7 @@ const Contacts = () => {
           </tbody>
         </Table>
       ) : (
-        <p>Your contact book is empty. Please enter your first contact.</p>
+        <p>Your contact book is empty. Please create your first contact.</p>
       )}
     </>
   );
