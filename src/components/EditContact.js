@@ -38,7 +38,7 @@ const EditContact = () => {
 
     const update_Contact = Object.assign(contact, { name, phone, email });
     dispatch(updateContact(update_Contact));
-    history.push("/");
+    history.push("/contact-book/");
   };
 
   return (

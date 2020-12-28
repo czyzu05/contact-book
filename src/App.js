@@ -16,7 +16,7 @@ const App = () => {
           <div className="container">
             <div className="py-3">
               <Switch>
-                <Route exact path="/" component={Contacts} />
+                <Route exact path="/contact-book/" component={Contacts} />
                 <Route exact path="/contacts/add" component={AddContact} />
                 <Route
                   exact

@@ -32,7 +32,7 @@ const AddContact = () => {
         email,
       })
     );
-    history.push("/");
+    history.push("/contact-book/");
   };
 
   return (
